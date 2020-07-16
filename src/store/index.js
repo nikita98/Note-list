@@ -5,47 +5,55 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    notes: [
+    todoCategories: [
       {
         title: "chores",
-        number: 0,
+        id: 0,
         todos: [
-          { text: "wash dishes", done: true, number: 0 },
-          { text: "wipe dust", done: true, number: 1 },
-          { text: "cook food", done: true, number: 2 },
+          { text: "wash dishes", done: true, id: 123 },
+          { text: "wipe dust", done: false, id: 1213123213 },
+          { text: "cook food", done: true, id: 2 },
           {
             text:
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero provident aperiam harum, reiciendis at similique amet vel natus autem deserunt?",
             done: false,
-            number: 3
+            id: 3
           }
         ]
       },
       {
         title: "wash yourself",
-        number: 1,
+        id: 1,
         todos: [
-          { text: "wash", done: false, number: 0 },
-          { text: "brush teeth", done: true, number: 1 },
-          { text: "trim nails", done: false, number: 2 }
+          { text: "wash", done: false, id: 0 },
+          { text: "brush teeth", done: true, id: 1 },
+          { text: "trim nails", done: false, id: 2 }
         ]
       },
       {
         title: "complete the test task",
-        number: 2,
+        id: 2,
         todos: [
-          { text: "create a store", done: false, number: 0 },
-          { text: "set up a link with firebase", done: false, number: 1 },
-          { text: "HTML coding", done: false, number: 2 },
-          { text: "make pretty styles", done: false, number: 3 }
+          { text: "create a store", done: false, id: 0 },
+          { text: "set up a link with firebase", done: false, id: 1 },
+          { text: "HTML coding", done: false, id: 2 },
+          { text: "make pretty styles", done: false, id: 3 }
         ]
       }
     ]
   },
-  mutations: {},
+  mutations: {
+    ADDTODOCATEGORY(state, category) {
+      state.todoCategories.push(category);
+      console.log(category);
+    }
+  },
   actions: {},
   getters: {
-    NOTES: state => state.notes
+    TODOCATEGORIES: state => state.todoCategories,
+    TODOCATEGORY: state => title => {
+      return state.todoCategories.find(todoCategory => todoCategory.title === title);
+    }
   },
   modules: {}
 });

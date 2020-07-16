@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>-->
     <router-view />
   </div>
 </template>
@@ -12,19 +10,26 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #fff;
+  font-size: 16px;
+}
+.btn {
+  padding: 10px 15px;
+  min-width: 100px;
+  background-color: rgb(57, 189, 101);
+  border-radius: 10px;
+  color: #ebe4ff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  &_deny {
+    background-color: rgb(219, 88, 88);
+  }
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-size: 18px;
 }
 </style>

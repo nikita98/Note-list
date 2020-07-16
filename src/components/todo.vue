@@ -5,7 +5,7 @@
 <script>
 export default {
   name: "todo",
-  props: ["number", "text", "done"],
+  props: ["id", "text", "done"],
   methods: {
     short(text) {
       if (text.length > 26) {

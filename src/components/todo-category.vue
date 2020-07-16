@@ -1,14 +1,14 @@
 <template>
-  <div class="note">
-    <div class="note__header">
-      <div class="note__title">{{ title }}</div>
-      <div class="note__number">{{done.length + "/" + sortedTodos.length}}</div>
+  <div class="todo-category">
+    <div class="todo-category__header" @click="$router.push('todo-list/' + title)">
+      <span class="todo-category__title">{{ title }}</span>
+      <span class="todo-category__number">{{done.length + "/" + sortedTodos.length}}</span>
     </div>
-    <div class="note__list">
+    <div class="todo-category__list">
       <todo
         v-for="todo in sortedTodos"
-        :key="todo.number"
-        :number="todo.number"
+        :key="todo.id"
+        :id="todo.id"
         :text="todo.text"
         :done="todo.done"
       />
@@ -20,11 +20,10 @@
 import todo from "@/components/todo.vue";
 
 export default {
-  name: "note",
   components: {
     todo
   },
-  props: ["number", "title", "todos"],
+  props: ["id", "title", "todos"],
   data() {
     return {
       done: [],
@@ -51,7 +50,7 @@ export default {
 </script>
 
 <style lang="scss">
-.note {
+.todo-category {
   &__header {
     cursor: pointer;
     font-size: 24px;

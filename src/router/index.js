@@ -1,20 +1,20 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import notes from "../views/notes.vue";
-import About from "../views/About.vue";
+import todoCategories from "../views/todo-categories.vue";
+import todoList from "../views/todo-list.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "notes",
-    component: notes
+    name: "todo-categories",
+    component: todoCategories
   },
   {
-    path: "/about",
-    name: "About",
-    component: About
+    path: '/todo-list/:title',
+    name: "todo-list",
+    component: todoList
   }
 ];
 

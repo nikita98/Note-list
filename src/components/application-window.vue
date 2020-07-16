@@ -1,43 +1,27 @@
 <template>
-  <div class="notes">
-    <div class="notes__inner">
-      <div class="notes__title">Задачи</div>
-      <note
-        v-for="note in NOTES"
-        :key="note.number"
-        :number="note.number"
-        :title="note.title"
-        :todos="note.todos"
-      />
+  <div class="application-window">
+    <div class="application-window__inner">
+      <div class="application-window__title">{{ title }}</div>
+      <slot></slot>
     </div>
   </div>
 </template>
 
 <script>
-import note from "@/components/note.vue";
-import { mapGetters } from "vuex";
-
 export default {
-  name: "notes",
-  components: {
-    note
-  },
-  computed: {
-    //computed
-    ...mapGetters(["NOTES"])
-  }
+  props: ["title", "label"]
 };
 </script>
 
 <style lang="scss">
-.notes {
+.application-window {
   display: flex;
   justify-content: center;
   &__inner {
     width: 100%;
     max-width: 800px;
     // border: 2px solid #6239bd;
-    box-shadow: -2px 2px 8px 1px rgba(98, 57, 189, 0.6);  
+    box-shadow: -2px 2px 8px 1px rgba(98, 57, 189, 0.6);
     border-top: 0;
     background-image: url("../assets/clouds.png");
     background-position: center top;
