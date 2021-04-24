@@ -1,4 +1,4 @@
 module.exports = {
-  // publicPath: "todo-list"
-  publicPath: ""
+  publicPath: "/",
+  // publicPath: "note-list"
 };
