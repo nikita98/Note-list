@@ -1,13 +1,10 @@
 <template>
   <div class="modal">
     <div class="modal__inner">
-      <div class="modal__text">
-        {{ text }}
-        <span class="modal__text-bold">{{ meaning }}</span>
-      </div>
+      <div class="modal__text">{{ text }}</div>
       <div class="modal__footer">
-        <div class="btn modal__btn">Yes</div>
-        <div class="btn btn_deny modal__btn">No</div>
+        <div class="btn modal__btn" @click="confirm(true)">Yes</div>
+        <div class="btn btn_deny modal__btn" @click="confirm(false)">No</div>
       </div>
     </div>
   </div>
@@ -15,10 +12,10 @@
 
 <script>
 export default {
-  props: ["text", "meaning"],
+  props: ["text", "actionName"],
   methods: {
-    confirm() {
-      this.$emit("confirm", this.meaning);
+    confirm(confirmation) {
+      this.$emit("action", confirmation);
     }
   }
 };
@@ -34,20 +31,21 @@ export default {
   background-color: rgba(128, 106, 255, 0.2);
   z-index: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   &__inner {
+    margin-top: 10vh;
     width: 400px;
     max-width: 80%;
     padding: 20px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: rgb(139, 67, 233);
     font-size: 18px;
   }
   &__text {
-    text-align: left;
+    text-align: center;
     margin-bottom: 30px;
   }
   &__text-bold {

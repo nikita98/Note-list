@@ -5,8 +5,6 @@ import store from "./store";
 import VueTextareaAutosize from "vue-textarea-autosize";
 Vue.use(VueTextareaAutosize);
 
-import "./assets/styles/style.scss";
-
 Vue.config.productionTip = false;
 
 new Vue({

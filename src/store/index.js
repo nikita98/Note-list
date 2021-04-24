@@ -15,7 +15,7 @@ export default new Vuex.Store({
           { text: "cook food", done: true, id: 2 },
           {
             text:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero provident aperiam harum, reiciendis at similique amet vel natus autem deserunt?",
+              "Lorem ipsum adolor sit amet consectetur adipisicing elit. Libero provident aperiam harum, reiciendis at similique amet vel natus autem deserunt?",
             done: false,
             id: 3
           }
@@ -43,16 +43,31 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-    ADDTODOCATEGORY(state, category) {
+    ADDTODOCATEGORY(state, title) {
+      let category = {
+        title: title,
+        id: Math.random() * Math.pow(10, 16),
+        todos: []
+      };
       state.todoCategories.push(category);
       console.log(category);
+    },
+
+    CHANGETODOCATEGORY(state, category) {
+      for (let i = 0; i < state.todoCategories.length; i++) {
+        if (state.todoCategories[i].title === category.title) {
+          state.todoCategories[i] = category;
+        }
+      }
     }
   },
   actions: {},
   getters: {
     TODOCATEGORIES: state => state.todoCategories,
     TODOCATEGORY: state => title => {
-      return state.todoCategories.find(todoCategory => todoCategory.title === title);
+      return state.todoCategories.find(
+        todoCategory => todoCategory.title === title
+      );
     }
   },
   modules: {}

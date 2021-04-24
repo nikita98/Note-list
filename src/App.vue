@@ -14,6 +14,7 @@
   font-size: 16px;
 }
 .btn {
+  cursor: pointer;
   padding: 10px 15px;
   min-width: 100px;
   background-color: rgb(57, 189, 101);
@@ -23,7 +24,8 @@
   font-weight: bold;
   font-size: 16px;
   &_deny {
-    background-color: rgb(219, 88, 88);
+    background-color: rgb(57, 125, 189);
+    
   }
 }
 

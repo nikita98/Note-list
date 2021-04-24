@@ -51,6 +51,7 @@ export default {
 
 <style lang="scss">
 .todo-category {
+  z-index: 1;
   &__header {
     cursor: pointer;
     font-size: 24px;
