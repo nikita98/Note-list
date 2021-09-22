@@ -12,15 +12,14 @@ const routes = [
     component: todoCategories
   },
   {
-    path: '/todo-list/:title',
+    path: "/todo-list/:title",
     name: "todo-list",
     component: todoList
   }
 ];
 
 const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
+  base: "/todo-list/",
   routes
 });
 
